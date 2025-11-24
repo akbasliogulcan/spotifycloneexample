@@ -4,7 +4,7 @@
 //*imports
 @import "./variables.scss";
 @import "./aside.scss";
-
+@import "./_mixin.scss";
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +12,13 @@
   text-decoration: none;
   border: none;
   outline: none;
+}
+
+a {
+  white-space: nowrap;
+  color: $textColor;
+  border-radius: 10px;
+  transition: all 0.3s ease;
 }
 
 body {

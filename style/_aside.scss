@@ -1,9 +1,56 @@
-aside {
-  background-color: rgb(184, 178, 178);
-}
+@import "./mixin.scss";
 
-figure {
-  img {
-    width: 40px;
+aside {
+  background-color: $grayColor;
+  padding: 16px;
+  border-radius: 10px;
+
+  figure {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    span {
+      @include lg {
+        display: none;
+      }
+    }
+
+    img {
+      width: 40px;
+    }
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 20px;
+
+    i {
+      @include lg {
+        font-size: 25px;
+      }
+    }
+
+    span {
+      font-size: 18px;
+      font-weight: bold;
+      color: $greenColor;
+      @include lg {
+        display: none;
+      }
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 10px;
+      &:hover {
+        background-color: $greenColor;
+        color: $blackColor;
+      }
+    }
   }
 }
