@@ -3,6 +3,7 @@
 
 //*imports
 @import "./variables.scss";
+@import "./aside.scss";
 
 * {
   margin: 0;
@@ -15,5 +16,15 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: $blackColor;
+  background-color: black;
+  color: $textColor;
+  height: 100vh;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.layout {
+  display: flex;
+  gap: 20px;
+  height: calc(100vh - 120px);
 }
