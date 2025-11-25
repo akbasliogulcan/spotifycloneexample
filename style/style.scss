@@ -3,8 +3,9 @@
 
 //*imports
 @import "./variables.scss";
+@import "./mixin.scss"; // <-- mixin'ler önce gelmeli
 @import "./aside.scss";
-@import "./_mixin.scss";
+
 * {
   margin: 0;
   padding: 0;

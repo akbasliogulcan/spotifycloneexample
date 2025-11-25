@@ -9,10 +9,9 @@ aside figure {
   align-items: center;
   gap: 10px;
 }
-@media (max-width: 992px) {
-  aside figure span {
-    display: none;
-  }
+aside figure span {
+  font-size: 22px;
+  font-weight: bold;
 }
 aside figure img {
   width: 40px;
@@ -23,10 +22,8 @@ aside nav {
   gap: 30px;
   margin-top: 20px;
 }
-@media (max-width: 992px) {
-  aside nav i {
-    font-size: 25px;
-  }
+aside nav i {
+  font-size: 24px;
 }
 aside nav span {
   font-size: 18px;
