@@ -4,6 +4,11 @@ aside {
   padding: 16px;
   border-radius: 10px;
 }
+@media (max-width: 1200px) {
+  aside {
+    padding: 20px 10px;
+  }
+}
 aside figure {
   display: flex;
   align-items: center;
@@ -12,6 +17,11 @@ aside figure {
 aside figure span {
   font-size: 22px;
   font-weight: bold;
+}
+@media (max-width: 992px) {
+  aside figure span {
+    display: none;
+  }
 }
 aside figure img {
   width: 40px;
@@ -24,6 +34,11 @@ aside nav {
 }
 aside nav i {
   font-size: 24px;
+}
+@media (max-width: 992px) {
+  aside nav i {
+    font-size: 19px;
+  }
 }
 aside nav span {
   font-size: 18px;
@@ -44,6 +59,61 @@ aside nav a {
 aside nav a:hover {
   background-color: #1db954;
   color: #121212;
+}
+
+main {
+  background-color: #282828;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 20px;
+}
+main header {
+  background-color: #121212;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+  border-radius: 10px;
+  gap: 20px;
+}
+main header form {
+  display: flex;
+  width: 100%;
+  box-shadow: 0 0 10px;
+  max-width: 350px;
+  border-radius: 5px;
+}
+main header form input {
+  background: transparent;
+  padding: 15px;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.78);
+}
+main header form button {
+  background: none;
+  cursor: pointer;
+  margin-right: 10px;
+  color: rgba(255, 255, 255, 0.78);
+}
+main header nav {
+  display: flex;
+  gap: 15px;
+}
+@media (max-width: 768px) {
+  main header nav {
+    display: none;
+  }
+}
+main header nav span {
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+main header nav span:hover {
+  color: white;
 }
 
 * {

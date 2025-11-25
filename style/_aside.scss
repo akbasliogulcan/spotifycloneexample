@@ -11,11 +11,11 @@ aside {
     gap: 10px;
 
     span {
-      font-size: 22px;
-      font-weight: bold;
       @include lg {
         display: none;
       }
+      font-size: 22px;
+      font-weight: bold;
     }
 
     img {
