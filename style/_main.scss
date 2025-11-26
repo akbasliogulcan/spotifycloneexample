@@ -65,3 +65,56 @@ main {
     }
   }
 }
+
+//section
+section {
+  margin-top: 20px;
+  flex: 1;
+
+  .list {
+    margin-top: 20px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+
+    .card {
+      background-color: #333;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-radius: 10px;
+      &:hover .play {
+        opacity: 1;
+        transition: opacity 0.8s ease;
+        bottom: 20px;
+      }
+      figure {
+        position: relative;
+        img {
+          width: 100%;
+          border-radius: 10px;
+        }
+        .play {
+          position: absolute;
+          background-color: green;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          display: grid;
+          place-items: center;
+          font-size: 20px;
+          right: 10px;
+          bottom: -20px;
+          opacity: 0;
+          &:hover {
+            background-color: red;
+            scale: 1.5;
+            rotate: 360deg;
+          }
+        }
+      }
+    }
+  }
+}
