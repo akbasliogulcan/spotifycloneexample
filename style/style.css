@@ -71,13 +71,20 @@ main {
   padding: 20px;
 }
 main header {
-  background-color: #121212;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  width: 100%;
+  padding: 18px 40px;
   display: flex;
   justify-content: space-between;
-  padding: 20px;
   align-items: center;
-  border-radius: 10px;
-  gap: 20px;
+  backdrop-filter: blur(12px);
+  background: rgba(92, 239, 188, 0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  animation: slideDown 0.7s ease forwards;
+  z-index: 999;
+  transition: padding 0.35s ease, backdrop-filter 0.35s ease;
 }
 main header form {
   display: flex;
@@ -85,6 +92,11 @@ main header form {
   box-shadow: 0 0 10px;
   max-width: 350px;
   border-radius: 5px;
+}
+@media (max-width: 768px) {
+  main header form {
+    max-width: unset;
+  }
 }
 main header form input {
   background: transparent;

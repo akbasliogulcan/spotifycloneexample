@@ -8,13 +8,20 @@ main {
   padding: 20px;
 
   header {
-    background-color: $blackColor;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    width: 100%;
+    padding: 18px 40px;
     display: flex;
     justify-content: space-between;
-    padding: 20px;
     align-items: center;
-    border-radius: 10px;
-    gap: 20px;
+    backdrop-filter: blur(12px);
+    background: rgba(92, 239, 188, 0.18);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    animation: slideDown 0.7s ease forwards;
+    z-index: 999;
+    transition: padding 0.35s ease, backdrop-filter 0.35s ease;
 
     form {
       display: flex;
@@ -22,6 +29,10 @@ main {
       box-shadow: 0 0 10px;
       max-width: 350px;
       border-radius: 5px;
+
+      @include md {
+        max-width: unset;
+      }
       input {
         background: transparent;
         padding: 15px;
