@@ -11,10 +11,8 @@ export class API {
            async getPopular() {
                       const response = await fetch('https://shazam.p.rapidapi.com/v2/search?term=kiss', options);
                       const data = await response.json()
-                      console.log(data);
-                      const formattedData = data.results.songs.data.map((item) => item.track);
-                      console.log(formattedData);
+                      const formattedData = data.results.songs.data.map((item) => item.results);
                       return formattedData;
            };
 
-};
+};         
