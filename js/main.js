@@ -1,7 +1,16 @@
 
 //api clasını import et
 import { API } from "./api.js";
+//ui clasını import et
+import { UI } from "./ui.js";
 
-//class yapısını kullanabilmek için örnek oluştur
+//api class yapısını kullanabilmek için örnek oluştur
 const api = new API();
-// api.getPopular();
+//ui class yapısını kullanabilmek için örnek oluştur
+const ui = new UI();
+
+const data = api.getPopular();
+
+ui.renderCards(data);
+
+

@@ -4,6 +4,15 @@ export class UI {
                       this.list = document.querySelector("#list");
 
            }
+
+
+           //arayüzü Renderlayan fonks.
+           renderCards(songs) {
+                      songs.forEach(() => {
+                                 console.log("card rendered");
+                      })
+
+           };
 }
 
 
