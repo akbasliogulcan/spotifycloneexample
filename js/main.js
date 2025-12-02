@@ -9,8 +9,10 @@ const api = new API();
 //ui class yapısını kullanabilmek için örnek oluştur
 const ui = new UI();
 
-const data = api.getPopular();
+//*Data'ya ulaş
+const data = await api.getPopular();
 
+//* renderla
 ui.renderCards(data);
 
 
