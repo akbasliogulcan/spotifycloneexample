@@ -18,15 +18,15 @@ export class UI {
 
                                  card.innerHTML = `
                                                                   <figure>
-                                                                             <img src="${song.images.coverart}"
-                                                                                        alt="card-image">
+                                                                       <img src="${song.artwork.url.replace('{w}', 300).replace('{h}', 300)}">
+                                                                                        
                                                                              <div class="play">
                                                                                         <i class="bi bi-play-fill"></i>
                                                                              </div>
                                                                   </figure>
                                                                   <div class="card-info">
-                                                                             <h4>Rumors</h4>
-                                                                             <h4>Nefex</h4>
+                                                                             <h4>${song.name}</h4>
+                                                                             <h4>${song.artistName}</h4>
                                                                   </div>
 
                                                        `;

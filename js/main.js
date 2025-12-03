@@ -9,10 +9,15 @@ const api = new API();
 //ui class yapısını kullanabilmek için örnek oluştur
 const ui = new UI();
 
-//*Data'ya ulaş
-const data = await api.getPopular();
 
-//* renderla
-ui.renderCards(data);
+document.addEventListener("DOMContentLoaded", async () => {
+           //*Data'ya ulaş
+           const data = await api.getPopular();
+
+           //* renderla
+           ui.renderCards(data);
+});
+
+
 
 

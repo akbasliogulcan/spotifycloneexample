@@ -1,8 +1,9 @@
 const options = {
            method: 'GET',
            headers: {
-                      'x-rapidapi-key': 'f4a4a70765msh66883dcb5a788a9p1c9303jsn525125bf3efa',
-                      'x-rapidapi-host': 'shazam.p.rapidapi.com'
+                      'x-rapidapi-key': '9b06edb9cbmsh0f65fa722829550p1802fajsn45fb031b6556',
+                      'x-rapidapi-host': 'shazam-api6.p.rapidapi.com',
+                      'Content-Type': 'application/x-www-form-urlencoded'
            }
 };
 
@@ -11,8 +12,9 @@ export class API {
            async getPopular() {
                       const response = await fetch('https://shazam.p.rapidapi.com/v2/search?term=kiss', options);
                       const data = await response.json()
-                      const formattedData = data.results.songs.data.map(item => item.attributes.name);
+
+                      const formattedData = data.results.songs.data.map(item => item.attributes);
                       return formattedData;
            };
 
-};         
+};                   
