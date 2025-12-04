@@ -70,6 +70,7 @@ main {
 section {
   margin-top: 20px;
   flex: 1;
+  height: 100%; /* BU SATIR GEREKLİ */
 
   #list {
     margin-top: 20px;
@@ -77,6 +78,9 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
+    padding: 20px;
+    min-height: 200px; /* LOADER İÇİN GEREKLİ */
+    place-items: center; /* Loader tam ortada */
 
     .card {
       background-color: #333;

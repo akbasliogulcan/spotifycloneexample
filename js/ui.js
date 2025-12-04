@@ -1,46 +1,66 @@
 export class UI {
-           //*kurucu metod        
-           constructor() {
-                      //*htmldeki elemanlara eriş
-                      this.list = document.querySelector("#list");
+      //*kurucu metod        
+      constructor() {
+            //*htmldeki elemanlara eriş
+            this.list = document.querySelector("#list");
 
-           }
-           //*arayüzü Renderlayan fonks.
-           renderCards(songs) {
-                      //*her bir şarkı için kart oluştur
-                      songs.forEach((song) => {
-                                 console.log(song);
-                                 const card = document.createElement("div");
+      }
+      //*arayüzü Renderlayan fonks.
+      renderCards(songs) {
 
-                                 //*Css class ekle Card clası eklendi.
-                                 card.classList.add("card");
+            this.list.innerHTML = ""; // loader'ı temizle
+
+            //*her bir şarkı için kart oluştur
+            songs.forEach((song) => {
+                  const card = document.createElement("div");
+
+                  //*Css class ekle Card clası eklendi.
+                  card.classList.add("card");
+
+                  // Dinamik görsel URL üretme
+                  const imgUrl = song.attributes.artwork.url
+                        .replace("{w}", 300)
+                        .replace("{h}", 300);
+
+                  card.innerHTML = `
+    <figure>
+        <img src="${imgUrl}" alt="${song.attributes.name}">
+        <div class="play">
+            <i class="bi bi-play-fill"></i>
+        </div>
+    </figure>
+
+    <div class="card-info">
+        <h4>${song.attributes.name}</h4>
+        <h4>${song.attributes.genreNames[0]}</h4>
+    </div>
+`;
 
 
-                                 card.innerHTML = `
-                                                                  <figure>
-                                                                       <img src="${song.artwork.url.replace('{w}', 300).replace('{h}', 300)}">
-                                                                                        
-                                                                             <div class="play">
-                                                                                        <i class="bi bi-play-fill"></i>
-                                                                             </div>
-                                                                  </figure>
-                                                                  <div class="card-info">
-                                                                             <h4>${song.name}</h4>
-                                                                             <h4>${song.artistName}</h4>
-                                                                  </div>
-
-                                                       `;
 
 
-
-                                 this.list.appendChild(card);
+                  this.list.appendChild(card);
 
 
 
 
-                      })
+            })
 
-           };
+      };
+
+
+      //*loader render eden fonks.
+      renderLoader() {
+
+            this.list.innerHTML = `
+
+  <div class="loader">
+    <span class="loader-text">loading</span>
+      <span class="load"></span>
+  </div>
+
+`;
+      };
 };
 
 

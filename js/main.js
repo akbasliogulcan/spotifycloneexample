@@ -10,11 +10,17 @@ const api = new API();
 const ui = new UI();
 
 
+//!sayfa yüklendiğinde  API  ya istek at.
 document.addEventListener("DOMContentLoaded", async () => {
-           //*Data'ya ulaş
+
+           //*render loader
+           ui.renderLoader();
+
+
+           //****Data'ya ulaş
            const data = await api.getPopular();
 
-           //* renderla
+           //****Render'la
            ui.renderCards(data);
 });
 

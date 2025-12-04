@@ -1,19 +1,19 @@
 const options = {
            method: 'GET',
            headers: {
-                      'x-rapidapi-key': '9b06edb9cbmsh0f65fa722829550p1802fajsn45fb031b6556',
-                      'x-rapidapi-host': 'shazam-api6.p.rapidapi.com',
-                      'Content-Type': 'application/x-www-form-urlencoded'
+                      'x-rapidapi-key': '2a599cce07msh70997a04b752261p18db01jsnbf6d3c0a7542',
+                      'x-rapidapi-host': 'shazam.p.rapidapi.com'
+
            }
 };
 
 export class API {
            //take popular musics from api
            async getPopular() {
-                      const response = await fetch('https://shazam.p.rapidapi.com/v2/search?term=kiss', options);
+                      const response = await fetch('https://shazam.p.rapidapi.com/v2/search?term=duman', options);
                       const data = await response.json()
-
-                      const formattedData = data.results.songs.data.map(item => item.attributes);
+                      const formattedData = data.results.artists.data.map(item => item);
+                      console.log(formattedData);
                       return formattedData;
            };
 
