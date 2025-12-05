@@ -27,3 +27,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 
+ui.form.addEventListener("submit", (e) => {
+           //*form gönderildğinde sayfa yeninelenmesin
+           e.preventDefault();
+
+           const query = (e.target[0].value);
+});
+
+const data = await api.getSearchMusic("manga");
+console.log(data);

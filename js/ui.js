@@ -3,12 +3,13 @@ export class UI {
       constructor() {
             //*htmldeki elemanlara eriş
             this.list = document.querySelector("#list");
+            this.form = document.querySelector("form");
 
       }
       //*arayüzü Renderlayan fonks.
       renderCards(songs) {
-
-            this.list.innerHTML = ""; // loader'ı temizle
+            //* listeyi temizle
+            this.list.innerHTML = "";
 
             //*her bir şarkı için kart oluştur
             songs.forEach((song) => {

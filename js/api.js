@@ -13,8 +13,22 @@ export class API {
                       const response = await fetch('https://shazam.p.rapidapi.com/v2/search?term=duman', options);
                       const data = await response.json()
                       const formattedData = data.results.artists.data.map(item => item);
-                      console.log(formattedData);
                       return formattedData;
            };
+
+
+           async getSearchMusic(query) {
+                      const res = await fetch(`https://shazam.p.rapidapi.com/v2/search?term=${query}`, options)
+
+                      const data = await res.json();
+
+                      console.log(data);
+                      const formattedData = data.results.artists.data.map(item => item);
+                      return formattedData;
+
+
+           };
+
+
 
 };                   
