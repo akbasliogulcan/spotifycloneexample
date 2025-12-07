@@ -4,6 +4,7 @@ export class UI {
             //*htmldeki elemanlara eriş
             this.list = document.querySelector("#list");
             this.form = document.querySelector("form");
+            this.title = document.querySelector("#title");
 
       }
       //*arayüzü Renderlayan fonks.

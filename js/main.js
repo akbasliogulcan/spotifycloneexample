@@ -27,12 +27,33 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 
-ui.form.addEventListener("submit", (e) => {
+ui.form.addEventListener("submit", async (e) => {
            //*form gönderildğinde sayfa yeninelenmesin
            e.preventDefault();
 
+           //****inputtaki değeri al
            const query = (e.target[0].value);
+
+           //*eper inputa bir şey yazılmadıysa api isteği atma
+           if (!query.trim()) {
+                      alert("Please enter a search term");
+                      return;
+
+           }
+
+
+           //*loader renderla
+           ui.renderLoader();
+
+           //*title dinamik oalrak renderla
+           ui.title.textContent = `Search Results for "${query}"`;
+
+           const songs = await api.getSearchMusic(query);
+
+           //*renderla
+           ui.renderCards(songs);
+
+
 });
 
-const data = await api.getSearchMusic("manga");
-console.log(data);
+
