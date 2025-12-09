@@ -19,6 +19,16 @@ export class UI {
                   //*Css class ekle Card clası eklendi.
                   card.classList.add("card");
 
+                  //*carda şarkıya ait bilgileri ekle
+                  card.dataset.title = song.attributes.name;
+                  card.dataset.subtitle = song.attributes.genreNames[0];
+                  card.dataset.image = song.attributes.artwork.url
+                        .replace("{w}", 300)
+                        .replace("{h}", 300);
+
+
+
+
                   // Dinamik görsel URL üretme
                   const imgUrl = song.attributes.artwork.url
                         .replace("{w}", 300)

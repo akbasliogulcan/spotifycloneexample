@@ -57,3 +57,17 @@ ui.form.addEventListener("submit", async (e) => {
 });
 
 
+
+//play butonuna tıklanınca müzik çalması için event listener ekle
+ui.list.addEventListener("click", (e) => {
+           //*liste alanı içindeki play butonuna tıklanırsa 
+           if (e.target.className == "bi bi-play-fill") {
+
+                      const card = e.target.parentElement.parentElement.parentElement;
+                      const songData = card.dataset;
+
+
+           }
+});
+
+
