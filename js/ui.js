@@ -26,9 +26,6 @@ export class UI {
                         .replace("{w}", 300)
                         .replace("{h}", 300);
 
-
-
-
                   // Dinamik görsel URL üretme
                   const imgUrl = song.attributes.artwork.url
                         .replace("{w}", 300)
@@ -47,10 +44,7 @@ export class UI {
         <h4>${song.attributes.genreNames[0]}</h4>
     </div>
 `;
-
-
-
-
+                  //*cardı listeye ekle, aslında list div'nin içinde card divi oluşturmak*/
                   this.list.appendChild(card);
 
 
@@ -64,15 +58,14 @@ export class UI {
       //*loader render eden fonks.
       renderLoader() {
 
-            this.list.innerHTML = `
-
-  <div class="loader">
-    <span class="loader-text">loading</span>
-      <span class="load"></span>
-  </div>
-
-`;
+            this.list.innerHTML = `<div class="loader">
+           <span class="loader-text">loading</span>
+             <span class="load"></span>
+             </div>`;
       };
+
+
+
 };
 
 

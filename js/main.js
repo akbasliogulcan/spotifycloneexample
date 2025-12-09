@@ -47,10 +47,9 @@ ui.form.addEventListener("submit", async (e) => {
 
            //*title dinamik oalrak renderla
            ui.title.textContent = `Search Results for "${query}"`;
-
            const songs = await api.getSearchMusic(query);
 
-           //*renderla
+           //* aratılan şarkının içeriğini renderla
            ui.renderCards(songs);
 
 

@@ -10,8 +10,6 @@ const options = {
 export class API {
            //take popular musics from api
 
-
-
            async getPopular() {
                       try {
                                  const response = await fetch("https://shazam.p.rapidapi.com/v2/search?term=kiss%20the%20rain&locale=en-US&offset=0&limit=5", options);
@@ -27,9 +25,7 @@ export class API {
 
            async getSearchMusic(query) {
                       const res = await fetch(`https://shazam.p.rapidapi.com/v2/search?term=${query}`, options)
-
                       const data = await res.json();
-
                       const formattedData = data.results.artists.data.map(item => item);
                       return formattedData;
 
