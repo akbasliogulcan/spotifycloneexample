@@ -66,6 +66,9 @@ ui.list.addEventListener("click", (e) => {
                       const songData = card.dataset;
 
 
+                      //*player alanını dinamik olarak renderla
+                      ui.renderPlayer(songData);
+
            }
 });
 

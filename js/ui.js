@@ -5,6 +5,7 @@ export class UI {
             this.list = document.querySelector("#list");
             this.form = document.querySelector("form");
             this.title = document.querySelector("#title");
+            this.player = document.querySelector(".player");
 
       }
       //*arayüzü Renderlayan fonks.
@@ -64,6 +65,34 @@ export class UI {
              </div>`;
       };
 
+
+
+      //*animasyon ekleyen fonks.
+
+
+      //*player kısmını dinamik olarak renderlayan fonks.
+      renderPlayer(song) {
+            console.log(song);
+            this.player.innerHTML = ` 
+                      <div class="info">
+                                 <img src="https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/99/4a/a6/994aa6ee-8232-c580-a7a4-1d4dfd602511/00602498648841.rgb.jpg/400x400cc.jpg"
+                                            alt="" />
+                                 <div>
+                                            <h5>Mockingbird</h5>
+                                            <p>Eminem</p>
+                                 </div>
+                      </div>
+
+                      <audio controls
+                                 src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/65/c6/15/65c61537-1c2f-e2bd-0f26-2ed9818fb86f/mzaf_9317418265960662555.plus.aac.ep.m4a"></audio>
+
+                      <div class="icons">
+                                 <i class="bi bi-music-note-list"></i>
+                                 <i class="bi bi-boombox"></i>
+                                 <i class="bi bi-pc-display"></i>
+                      </div>
+            `;
+      }
 
 
 };
