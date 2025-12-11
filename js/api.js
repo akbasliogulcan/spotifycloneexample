@@ -13,12 +13,10 @@ export class API {
            async getPopular() {
                       try {
 
-                                 const response = await fetch("https://shazam.p.rapidapi.com/v2/auto-complete?term=kiss%20the&locale=en-US", options);
-                                 console.log(response);
+                                 const response = await fetch("https://shazam.p.rapidapi.com/v2/search?term=duman", options);
                                  const data = await response.json()
-                                 console.log(data);
-                                 const formattedData = data.results.terms.map(item => item);
-                                 console.log(formattedData);
+                                 const formattedData = data.results.artists.data.map(item => (item));
+                                 // const formattedData = data.results.terms.map(item => item);
                                  return formattedData;
                       } catch (error) {
                                  alert("Error fetching popular music:", error);
@@ -30,7 +28,7 @@ export class API {
            async getSearchMusic(query) {
                       const res = await fetch(`https://shazam.p.rapidapi.com/v2/search?term=${query}`, options)
                       const data = await res.json();
-                      const formattedData = data.results.artists.data.map(item => item);
+                      const formattedData = data.results.artists.data.map(item => (item));
                       return formattedData;
 
 

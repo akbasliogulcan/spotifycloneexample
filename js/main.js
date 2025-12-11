@@ -4,13 +4,14 @@ import { API } from "./api.js";
 //ui clasını import et
 import { UI } from "./ui.js";
 
+
 //api class yapısını kullanabilmek için örnek oluştur
 const api = new API();
 //ui class yapısını kullanabilmek için örnek oluştur
 const ui = new UI();
 
 
-//!sayfa yüklendiğinde  API  ya istek at.
+// //!sayfa yüklendiğinde  API  ya istek at.
 document.addEventListener("DOMContentLoaded", async () => {
 
            //*render loader
@@ -59,10 +60,11 @@ ui.form.addEventListener("submit", async (e) => {
 
 //play butonuna tıklanınca müzik çalması için event listener ekle
 ui.list.addEventListener("click", (e) => {
-           //*liste alanı içindeki play butonuna tıklanırsa 
-           if (e.target.className == "bi bi-play-fill") {
+           console.log(e);
+           //*liste alanı içindeki play butonuna tıklanırsa
+           if (e.target.className == "play") {
 
-                      const card = e.target.parentElement.parentElement.parentElement;
+                      const card = e.target.parentElement.parentElement;
                       const songData = card.dataset;
 
 

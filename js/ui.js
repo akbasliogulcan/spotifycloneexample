@@ -18,14 +18,19 @@ export class UI {
                   const card = document.createElement("div");
                   //*Css class ekle Card clası eklendi.
                   card.classList.add("card");
-                  card.dataset.title = song.attributes?.name ?? song;  // eğer string ise song
-                  card.dataset.subtitle = song.attributes?.genreNames?.[0] ?? "";
 
-                  // Eğer artwork varsa ekle
-                  const rawUrl = song.attributes?.artwork?.url;
+                  // Eğer sonuç item'ı string ise (çok düşük ihtimal) fallback olarak direkt song kullanıyoruz.
+                  card.dataset.title = song?.attributes?.name ?? String(song);
+
+                  // Genre varsa al, yoksa boş bırak
+                  card.dataset.subtitle = song?.attributes?.genreNames?.[0] ?? "";
+
+                  // Artwork URL varsa 300x300 olacak şekilde düzenle
+                  const rawUrl = song?.attributes?.artwork?.url;
+
                   const imgUrl = rawUrl
-                        ? rawUrl.replace("{w}", 300).replace("{h}", 300)
-                        : "img/default.jpg";
+                        ? rawUrl.replace("{w}", "300").replace("{h}", "300")
+                        : "img/default.jpg";  // yedek resim
 
                   card.dataset.image = imgUrl;
 
@@ -67,45 +72,44 @@ export class UI {
 
 
       //*animasyon ekleyen fonks.
-
+      toggleAnimation() {
+            const image = document.querySelector('.info img');
+            image.classList.toggle("animate");
+      };
 
       //*player kısmını dinamik olarak renderlayan fonks.
       renderPlayer(song) {
-
-            // ✔ 1) Şarkı adı
-            const title = song.attributes?.name ?? "Unknown Title";
-
-            // ✔ 2) Sanatçı adı
-            const artist = song.attributes?.artistName ?? "Unknown Artist";
-
-            // ✔ 3) Artwork URL → {w} & {h} değiştir
-            const artworkUrl = song.attributes?.artwork?.url
-                  ? song.attributes.artwork.url
-                        .replace("{w}", 400)
-                        .replace("{h}", 400)
-                  : "img/default.jpg";
-
-            // ✔ 4) Önizleme müzik URL (previews array)
-            const audioUrl = song.attributes?.previews?.[0]?.url ?? "";
-
-            this.player.innerHTML = `
-       <div class="info">
-        <img src="${artworkUrl}" alt="${title}" />
+            this.player.innerHTML = ` 
+      <div class="info">
+        <img
+          src="${song.image}"
+          alt=""
+        />
         <div>
-            <h5>${title}</h5>
-            <p>${artist}</p>
+          <h5>${song.title}</h5>
+          <p>${song.subtitle}</p>
         </div>
-    </div>
+      </div>
 
-    <audio controls src="${audioUrl}"></audio>
 
-    <div class="icons">
+      <audio
+        controls
+        autoplay
+        src="${song.mp3}"
+      ></audio>
+
+ 
+      <div class="icons">
         <i class="bi bi-music-note-list"></i>
         <i class="bi bi-boombox"></i>
         <i class="bi bi-pc-display"></i>
-    </div>
-            `;
+      </div>`;
 
+
+            //*Şarkı resminin oynatılma durumuna bağlı olarak play ve pause addevent listener ekle
+            const audio = document.querySelector("audio")
+            audio.addEventListener("play", this.toggleAnimation);
+            audio.addEventListener("pause", this.toggleAnimation);
 
       }
 

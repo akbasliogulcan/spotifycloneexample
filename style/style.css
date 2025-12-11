@@ -201,19 +201,32 @@ section #list .card .card-info {
 }
 .player .info {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 12px;
 }
 .player .info img {
   width: 70px;
   height: 70px;
   border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.player .info div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .player .info div h5 {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .player .info div p {
   color: rgb(150, 150, 150);
+  font-size: 14px;
 }
 .player audio {
   width: 40%;
@@ -225,9 +238,17 @@ section #list .card .card-info {
 }
 .player .icons {
   display: flex;
+  align-items: center;
   gap: 20px;
   font-size: 20px;
   margin-right: 20px;
+}
+.player .icons i {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.player .icons i:hover {
+  color: #ff346a;
 }
 @media (max-width: 992px) {
   .player .icons {
@@ -243,8 +264,8 @@ section #list .card .card-info {
     transform: rotate(360deg);
   }
 }
-.animate {
-  animation: turn 4s infinite linear;
+.disk-rotate {
+  animation: turn 3.5s infinite linear;
 }
 
 * {
