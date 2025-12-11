@@ -1,7 +1,7 @@
 const options = {
            method: 'GET',
            headers: {
-                      'x-rapidapi-key': 'f4a4a70765msh66883dcb5a788a9p1c9303jsn525125bf3efa',
+                      'x-rapidapi-key': '07df508ffcmsh9dbd3370df633fep1f2794jsn95bb2953fcf1',
                       'x-rapidapi-host': 'shazam.p.rapidapi.com',
 
            }
@@ -12,12 +12,16 @@ export class API {
 
            async getPopular() {
                       try {
-                                 const response = await fetch("https://shazam.p.rapidapi.com/v2/search?term=kiss%20the%20rain&locale=en-US&offset=0&limit=5", options);
+
+                                 const response = await fetch("https://shazam.p.rapidapi.com/v2/auto-complete?term=kiss%20the&locale=en-US", options);
+                                 console.log(response);
                                  const data = await response.json()
-                                 const formattedData = data.results.artists.data.map(item => item);
+                                 console.log(data);
+                                 const formattedData = data.results.terms.map(item => item);
+                                 console.log(formattedData);
                                  return formattedData;
                       } catch (error) {
-                                 console.log("Error fetching popular music:", error);
+                                 alert("Error fetching popular music:", error);
                       }
 
            };

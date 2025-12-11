@@ -3,49 +3,72 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px 0;
-  // Info
+
+  // Şarkı bilgisi (sol taraf)
   .info {
     display: flex;
-    gap: 10px;
+    align-items: center;
+    gap: 12px;
+
     img {
       width: 70px;
       height: 70px;
       border-radius: 50%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
     }
 
     div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
       h5 {
         font-size: 18px;
-        font-weight: 500;
+        font-weight: 600;
+        margin-bottom: 2px;
       }
+
       p {
         color: rgb(150, 150, 150);
+        font-size: 14px;
       }
     }
   }
 
-  // Audio
+  // Audio player
   audio {
     width: 40%;
+
     @include lg {
       width: 60%;
     }
   }
 
-  // Icons
+  // Sağdaki ikonlar
   .icons {
     display: flex;
+    align-items: center;
     gap: 20px;
     font-size: 20px;
     margin-right: 20px;
+
+    i {
+      cursor: pointer;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #ff346a;
+      }
+    }
+
     @include lg {
       display: none;
     }
   }
 }
 
-// Şarkı oynatıldığında eklenecek animasyon
-
+// Dönen disk animasyonu
 @keyframes turn {
   from {
     transform: rotate(0);
@@ -55,6 +78,7 @@
   }
 }
 
-.animate {
-  animation: turn 4s infinite linear;
+// Bu sınıf sadece img elementine eklendiğinde çalışır
+.disk-rotate {
+  animation: turn 3.5s infinite linear;
 }
